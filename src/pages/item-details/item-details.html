@@ -10,7 +10,7 @@
 <ion-content>
 
     <ion-item>
-      <ion-label fixed>Name</ion-label>
+      <ion-label fixed>ชื่อ</ion-label>
       <ion-input type="text" [(ngModel)]="selectedItemName"></ion-input>
     </ion-item>
 
@@ -20,7 +20,7 @@
     
     <ion-list>
       <ion-item>
-        <ion-label>ช่องเก็บของ</ion-label>
+        <ion-label>เปลี่ยนช่องเก็บของ</ion-label>
         <ion-select [(ngModel)]="selectedlocker">
           <ion-option *ngFor="let item of items" value="{{item._id}}">{{item.name}}</ion-option>
         </ion-select>
@@ -38,11 +38,11 @@
             <ion-col col-3>{{item.actionBy}}</ion-col>
             <ion-col col-3>{{item.witnessBy}}</ion-col>
             <ion-col col-3>{{item.status}}</ion-col>
-            <ion-col col-3>{{item.actionDate}}</ion-col>
+            <ion-col col-3>{{item.actionDate| date : 'dd-MM-yyyyTHH:mm' }}</ion-col>
           </ion-row>
       </ion-grid>
   
-  <button ion-button color="secondary" (click)="Edit()">แก้ไข</button>
-  <button ion-button color="danger" (click)="Delete()">ลบ</button>
+  <button ion-button block color="secondary" (click)="Edit()">แก้ไข</button>
+  <button ion-button block color="danger" (click)="Delete()">ลบ</button>
 
 </ion-content>

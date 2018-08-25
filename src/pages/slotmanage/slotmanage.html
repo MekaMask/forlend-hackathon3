@@ -10,7 +10,7 @@
 
 <ion-content padding>
 
-    <button ion-button color="secondary" (click)="addNewSlot()">+ เพิ่มช่องเก็บของ</button>
+    <button ion-button block color="secondary" (click)="addNewSlot()">+ เพิ่มช่องเก็บของ</button>
 
     <div *ngIf="!items">
       Loading
@@ -20,20 +20,20 @@
         
         <ion-grid >
           <ion-row>
-            <ion-col col-10>ชื่อช่องเก็บของ</ion-col>
-            <ion-col col-1>Row</ion-col>
-            <ion-col col-1>Column</ion-col>
+            <ion-col col-8>ชื่อช่องเก็บของ</ion-col>
+            <ion-col col-2>แถว</ion-col>
+            <ion-col col-2>สดมภ์</ion-col>
           </ion-row>
         </ion-grid>
 
         <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-          {{item.name}}
-          <div class="item-note" item-right>
-            {{item.row}}
-          </div>
-          <div class="item-note" item-right>
-              {{item.col}}
-            </div>
+            <ion-grid >
+              <ion-row>
+                <ion-col col-10>{{item.name}}</ion-col>
+                <ion-col col-1>{{item.row}}</ion-col>
+                <ion-col col-1> {{item.col}}</ion-col>
+              </ion-row>
+            </ion-grid>
         </button>
       </ion-list>
 

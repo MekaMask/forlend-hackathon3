@@ -11,21 +11,21 @@
 <ion-content padding>
 
     <ion-item>
-        <ion-label fixed>Name</ion-label>
+        <ion-label fixed>ชื่อ</ion-label>
         <ion-input type="text" [(ngModel)]="name"></ion-input>
     </ion-item>
 
     <ion-item>
-        <ion-label fixed>Row</ion-label>
+        <ion-label fixed>แถว</ion-label>
         <ion-input type="text" [(ngModel)]="row"></ion-input>
     </ion-item>
 
     <ion-item>
-        <ion-label fixed>Column</ion-label>
+        <ion-label fixed>สดมภ์</ion-label>
         <ion-input type="text" [(ngModel)]="column"></ion-input>
     </ion-item>
 
-    <button ion-button color="secondary" (click)="Create()">OK</button>
-    <button ion-button color="dark" (click)="Cancel()">Cancel</button>
+    <button ion-button block color="secondary" (click)="Create()">OK</button>
+    <button ion-button block color="dark" (click)="Cancel()">Cancel</button>
 
 </ion-content>

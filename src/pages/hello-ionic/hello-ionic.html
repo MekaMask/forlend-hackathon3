@@ -10,24 +10,35 @@
 
 <ion-content padding>
 
-    <button ion-button color="secondary" (click)="addNewSlot()">+ เพิ่มของ</button>
+    <button ion-button block color="secondary" (click)="addNewSlot()">+ เพิ่มของ</button>
 
     <ion-list *ngIf="items">
       <ion-grid >
         <ion-row>
-          <ion-col col-12>ชื่อ</ion-col>
+          <ion-col col-9>ชื่อ</ion-col>
+          <ion-col col-3>สถานะ</ion-col>
         </ion-row>
       </ion-grid>
       <div *ngFor="let item of items">
-          <button ion-item (click)="selectItem(item)">
-            {{item.name}}
-          </button>
-          <div *ngIf="item.canlend" class="item-note">
-              <button ion-button color="secondary" (click)="Rent(item)">ยืม</button>
-          </div>
-          <div *ngIf="item.canSendBack" class="item-note">
-              <button ion-button color="danger" (click)="Refund(item)">คืน</button>
-          </div>
+          <ion-grid >
+              <ion-row>
+                <ion-col col-8>
+                    <button ion-item (click)="selectItem(item)">
+                        {{item.name}}
+                      </button>
+                </ion-col>
+                <ion-col col-2>
+                    <div *ngIf="item.canlend" class="item-note">
+                        <button ion-button color="secondary" (click)="Rent(item)">ยืม</button>
+                    </div>
+                </ion-col>
+                <ion-col col-2>
+                    <div *ngIf="item.canSendBack" class="item-note">
+                        <button ion-button color="danger" (click)="Refund(item)">คืน</button>
+                    </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
       </div>
         
       </ion-list>

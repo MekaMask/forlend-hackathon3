@@ -16,13 +16,21 @@
         </ion-row>
       </ion-grid>
 
-      <img src="{{qrImageURL}}">
+      <ion-grid >
+          <ion-row>
+            <ion-col col-1></ion-col>
+            <ion-col col-10>
+                <img width="250" height="250" src="{{qrImageURL}}">
+            </ion-col>
+            <ion-col col-1></ion-col>
+          </ion-row>
+        </ion-grid>
 
       <ion-item>
           <ion-label fixed>ชื่อพยาน</ion-label>
           <ion-input type="text" [(ngModel)]="attestor"></ion-input>
       </ion-item>
 
-      <button ion-button color="danger" (click)="Create()">คืนของ</button>
+      <button ion-button block color="danger" (click)="Create()">คืนของ</button>
    
 </ion-content>
