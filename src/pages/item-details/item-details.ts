@@ -5,7 +5,7 @@ import { SlotAddPage } from '../slotadd/slotadd';
 import { Subscription } from 'rxjs';
 import { Platform } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
-import { ItemDetail } from '../../models/slot';
+import { ItemDetail, Slot } from '../../models/slot';
 import { ItemDetailsAddPage } from '../item-details-add/item-details-add';
 
 
@@ -15,24 +15,31 @@ import { ItemDetailsAddPage } from '../item-details-add/item-details-add';
 })
 export class ItemDetailsPage {
   
-  private items:any = [];
-  private onResumeSubscription: Subscription;
+  public selectedItemId:any;
+  public selectedItemName:any;
+  public selectedItemSlotName:any;
+  private items: Slot[] = [];
+  private selectedlocker: any;
 
-  constructor(private http: HttpClient, public navCtrl: NavController, platform: Platform) {
-  }
+  constructor(private http: HttpClient, public navCtrl: NavController, platform: Platform, public navParams: NavParams) {
+    this.selectedItemId = navParams.get('item')._id;
+    this.selectedItemName = navParams.get('item').name;
+    this.selectedItemSlotName = navParams.get('item').locker.name;
+    console.log(this.selectedItemSlotName)
 
-  ionViewDidEnter() {
-    this.http.get<ItemDetail[]>('http://foelend-svc.azurewebsites.net/api/ForLend/GetItems').subscribe(result => {
+    this.http.get<Slot[]>('http://foelend-svc.azurewebsites.net/api/ForLend/GetLockers').subscribe(result => {
       this.items = result;
-      console.log(this.items)
     }, error => console.error(error));
   }
 
-  itemTapped(event, item) {
-  }
-
-  addNewSlot(){
-    this.navCtrl.push(ItemDetailsAddPage);
+  Edit(){
+    this.http.post('http://foelend-svc.azurewebsites.net/api/ForLend/UpdateItem', {
+      "itemid": this.selectedItemId,
+      "name": this.selectedItemName,
+      "lockerId": this.selectedlocker
+    }).subscribe(result => {
+      this.navCtrl.pop();
+    }, error => console.error(error));
   }
 
 }

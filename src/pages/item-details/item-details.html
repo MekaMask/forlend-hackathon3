@@ -9,22 +9,25 @@
 
 <ion-content>
 
-    <button ion-button color="secondary" (click)="addNewSlot()">+ เพิ่มรายการของ</button>
+    <ion-item>
+      <ion-label fixed>Name</ion-label>
+      <ion-input type="text" [(ngModel)]="selectedItemName"></ion-input>
+    </ion-item>
 
-    <div *ngIf="!items">
-      Loading
-    </div>
-
-    <ion-list *ngIf="items">
-        <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-          {{item.name}}
-          <div class="item-note" item-right>
-            {{item.row}}
-          </div>
-          <div class="item-note" item-right>
-              {{item.column}}
-            </div>
-        </button>
-      </ion-list>
+    <ion-item>
+        <ion-label>ช่องเก็บของปัจจุบัน {{selectedItemSlotName}}</ion-label>
+      </ion-item>
+    
+    <ion-list>
+      <ion-item>
+        <ion-label>ช่องเก็บของ</ion-label>
+        <ion-select [(ngModel)]="selectedlocker">
+          <ion-option *ngFor="let item of items" value="{{item._id}}">{{item.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  
+  
+  <button ion-button color="secondary" (click)="Edit()">แก้ไข</button>
 
 </ion-content>

@@ -7,6 +7,7 @@ import { Platform } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import { Slot, ItemDetail } from '../../models/slot';
 import { ItemDetailsAddPage } from '../item-details-add/item-details-add';
+import { ItemDetailsPage } from '../item-details/item-details';
 
 
 @Component({
@@ -30,6 +31,12 @@ export class HelloIonicPage {
 
   addNewSlot(){
     this.navCtrl.push(ItemDetailsAddPage);
+  }
+
+  selectItem(item){
+    this.navCtrl.push(ItemDetailsPage, {
+      item: item
+    });
   }
 
 }

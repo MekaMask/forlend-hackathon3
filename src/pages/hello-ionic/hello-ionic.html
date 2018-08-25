@@ -14,7 +14,7 @@
 
     <ion-list *ngIf="items">
 
-        <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
+        <button ion-item *ngFor="let item of items" (click)="selectItem(item)">
           {{item.name}}
           <div *ngIf="item.canlend" class="item-note" item-right>
               <button ion-button color="secondary" (click)="addNewSlot()">ยืม</button>
