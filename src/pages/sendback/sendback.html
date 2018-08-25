@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>ยืม</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-grid>
+        <ion-row>
+          <ion-col col-12>{{ selectedItemName }}</ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <img src="{{qrImageURL}}">
+
+      <ion-item>
+          <ion-label fixed>ชื่อพยาน</ion-label>
+          <ion-input type="text" [(ngModel)]="attestor"></ion-input>
+      </ion-item>
+
+      <button ion-button color="danger" (click)="Create()">คืนของ</button>
+   
+</ion-content>

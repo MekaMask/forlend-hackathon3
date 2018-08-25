@@ -13,6 +13,8 @@ import { SlotAddPage } from '../pages/slotadd/slotadd';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { RentPage } from '../pages/rent/rent';
+import { SendBackPage } from '../pages/sendback/sendback';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ItemDetailsPage,
     ItemDetailsAddPage,
     ListPage,
+    RentPage,
+    SendBackPage,
     SlotmanagePage,
     SlotAddPage,
   ],
@@ -33,6 +37,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   entryComponents: [
     MyApp,
     HelloIonicPage,
+    RentPage,
+    SendBackPage,
     ItemDetailsPage,
     ItemDetailsAddPage,
     ListPage,

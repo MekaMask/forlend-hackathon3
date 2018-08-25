@@ -14,15 +14,18 @@
 
     <ion-list *ngIf="items">
 
-        <button ion-item *ngFor="let item of items" (click)="selectItem(item)">
-          {{item.name}}
-          <div *ngIf="item.canlend" class="item-note" item-right>
-              <button ion-button color="secondary" (click)="addNewSlot()">ยืม</button>
+      <div *ngFor="let item of items">
+          <button ion-item (click)="selectItem(item)">
+            {{item.name}}
+          </button>
+          <div *ngIf="item.canlend" class="item-note">
+              <button ion-button color="secondary" (click)="Rent(item)">ยืม</button>
           </div>
-          <div *ngIf="item.canSendBack" class="item-note" item-right>
-              <button ion-button color="secondary" (click)="addNewSlot()">คืน</button>
+          <div *ngIf="item.canSendBack" class="item-note">
+              <button ion-button color="danger" (click)="Refund(item)">คืน</button>
           </div>
-        </button>
+      </div>
+        
       </ion-list>
 
 </ion-content>
