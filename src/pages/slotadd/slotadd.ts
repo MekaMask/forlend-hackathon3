@@ -20,7 +20,7 @@ export class SlotAddPage {
 
   public Create(){
     this.http.post('http://foelend-svc.azurewebsites.net/api/ForLend/CreateLocker',
-    { "name": this.name, "row": this.row, "column": this.column }).subscribe(result => {
+    { "name": this.name, "row": this.row, "col": this.column }).subscribe(result => {
       this.navCtrl.pop();
     }, error => console.error(error));
   }
