@@ -12,7 +12,11 @@
 
     <button ion-button (click)="addNewSlot()">เพิ่ม</button>
 
-    <ion-list>
+    <div *ngIf="!items">
+      Loading
+    </div>
+
+    <ion-list *ngIf="items">
         <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
           {{item.name}}
           <div class="item-note" item-right>

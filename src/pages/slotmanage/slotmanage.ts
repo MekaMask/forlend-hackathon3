@@ -4,6 +4,8 @@ import { SlotAddPage } from '../slotadd/slotadd';
 
 import { Subscription } from 'rxjs';
 import { Platform } from 'ionic-angular';
+import { HttpClient } from '@angular/common/http';
+import { Slot } from '../../models/slot';
 
 @Component({
   selector: 'slotmanage',
@@ -11,19 +13,17 @@ import { Platform } from 'ionic-angular';
 })
 export class SlotmanagePage {
 
-  public static slots:any = [];
   private items:any = [];
   private onResumeSubscription: Subscription;
 
-  constructor(public navCtrl: NavController, platform: Platform) {
-    console.log(SlotmanagePage.slots)
-    this.onResumeSubscription = platform.resume.subscribe(() => {
-      console.log("A");
-   }); 
+  constructor(private http: HttpClient, public navCtrl: NavController, platform: Platform) {
   }
 
   ionViewDidEnter() {
-    this.items = SlotmanagePage.slots;
+    this.http.get<Slot[]>('http://foelend-svc.azurewebsites.net/api/ForLend/GetLockers').subscribe(result => {
+      this.items = result;
+      console.log(this.items)
+    }, error => console.error(error));
   }
 
   itemTapped(event, item) {

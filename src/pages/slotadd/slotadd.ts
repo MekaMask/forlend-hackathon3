@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { SlotmanagePage } from '../slotmanage/slotmanage'
 import { NavController, NavParams } from 'ionic-angular';
+import { HttpClient } from '@angular/common/http';
+
+import { SlotmanagePage } from '../slotmanage/slotmanage'
 
 @Component({
   selector: 'slotadd',
@@ -13,13 +15,13 @@ export class SlotAddPage {
   public row:any;
   public column:any;
 
-  constructor(public navCtrl: NavController) {
-    
+  constructor(private http: HttpClient, public navCtrl: NavController) {
   }
 
   public Create(){
-    SlotAddPage.runningId++;
-    SlotmanagePage.slots.push({ "id": SlotAddPage.runningId, "name": this.name, "row": this.row, "column": this.column });
-    this.navCtrl.pop();
+    this.http.post('http://foelend-svc.azurewebsites.net/api/ForLend/CreateLocker',
+    { "name": this.name, "row": this.row, "column": this.column }).subscribe(result => {
+      this.navCtrl.pop();
+    }, error => console.error(error));
   }
 }
