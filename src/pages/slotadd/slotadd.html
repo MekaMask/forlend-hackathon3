@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>จัดการช่องเก็บของ</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-item>
+        <ion-label fixed>Name</ion-label>
+        <ion-input type="text" [(ngModel)]="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label fixed>Row</ion-label>
+        <ion-input type="text" [(ngModel)]="row"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label fixed>Column</ion-label>
+        <ion-input type="text" [(ngModel)]="column"></ion-input>
+    </ion-item>
+
+    <button ion-button (click)="Create()">สร้าง</button>
+
+</ion-content>
