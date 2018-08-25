@@ -16,6 +16,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { RentPage } from '../pages/rent/rent';
 import { SendBackPage } from '../pages/sendback/sendback';
 import { LoginPage } from '../pages/login/login';
+import { LogoutPage } from '../pages/logout/logout';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { LoginPage } from '../pages/login/login';
     SlotmanagePage,
     SlotAddPage,
     LoginPage,
+    LogoutPage
   ],
   imports: [
     BrowserModule,
@@ -46,7 +48,8 @@ import { LoginPage } from '../pages/login/login';
     ListPage,
     SlotmanagePage,
     SlotAddPage,
-    LoginPage
+    LoginPage,
+    LogoutPage
   ],
   providers: [
     StatusBar,

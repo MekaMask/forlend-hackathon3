@@ -11,6 +11,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { _appIdRandomProviderFactory } from '@angular/core/src/application_tokens';
 import { LoginPage } from '../pages/login/login';
+import { LogoutPage } from '../pages/logout/logout';
 
 
 @Component({
@@ -35,6 +36,7 @@ export class MyApp {
     this.pages = [
       { title: 'รายการของ', component: HelloIonicPage },
       { title: 'ช่องเก็บของ', component: SlotmanagePage },
+      { title: 'ออกจากระบบ', component: LogoutPage },
     ];
   }
 
