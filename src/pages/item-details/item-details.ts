@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import { Platform } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
 import { ItemDetail } from '../../models/slot';
+import { ItemDetailsAddPage } from '../item-details-add/item-details-add';
 
 
 @Component({
@@ -31,7 +32,7 @@ export class ItemDetailsPage {
   }
 
   addNewSlot(){
-    this.navCtrl.push(SlotAddPage);
+    this.navCtrl.push(ItemDetailsAddPage);
   }
 
 }

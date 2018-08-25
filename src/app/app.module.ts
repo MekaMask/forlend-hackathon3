@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ItemDetailsPage } from '../pages/item-details/item-details';
+import { ItemDetailsAddPage } from '../pages/item-details-add/item-details-add';
 import { ListPage } from '../pages/list/list';
 import { SlotmanagePage } from '../pages/slotmanage/slotmanage';
 import { SlotAddPage } from '../pages/slotadd/slotadd';
@@ -18,6 +19,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     HelloIonicPage,
     ItemDetailsPage,
+    ItemDetailsAddPage,
     ListPage,
     SlotmanagePage,
     SlotAddPage,
@@ -32,6 +34,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     HelloIonicPage,
     ItemDetailsPage,
+    ItemDetailsAddPage,
     ListPage,
     SlotmanagePage,
     SlotAddPage

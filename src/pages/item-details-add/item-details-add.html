@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar>
+    <button menuToggle *ngIf="!selectedItem">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>เพิ่มรายการของ</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-content padding>
+
+        <ion-item>
+            <ion-label fixed>Name</ion-label>
+            <ion-input type="text" [(ngModel)]="data.name"></ion-input>
+        </ion-item>
+    
+        <ion-item>
+            <ion-label fixed>detail</ion-label>
+            <ion-input type="text" [(ngModel)]="data.detail"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>type</ion-label>
+            <ion-input type="text" [(ngModel)]="data.type"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label fixed>status</ion-label>
+            <ion-input type="text" [(ngModel)]="data.status"></ion-input>
+        </ion-item>
+        <ion-list>
+            <ion-item>
+              <ion-label>ช่องเก็บของ</ion-label>
+              <ion-select [(ngModel)]="data.locker">
+                <ion-option *ngFor="let item of items" value="{{item}}">{{item.name}}</ion-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+    
+        <button ion-button (click)="Create()">สร้าง</button>
+    
+    </ion-content>
+    
+</ion-content>
