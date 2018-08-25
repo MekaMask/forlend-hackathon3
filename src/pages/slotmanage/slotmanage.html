@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>จัดการช่องเก็บของ</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+    <button ion-button>เพิ่ม</button>
+
+    <ion-list>
+        <button ion-item *ngFor="let item of slots" (click)="itemTapped($event, item)">
+          {{item.id}}
+          <div class="item-note" item-right>
+            {{item.name}}
+          </div>
+        </button>
+      </ion-list>
+
+</ion-content>
