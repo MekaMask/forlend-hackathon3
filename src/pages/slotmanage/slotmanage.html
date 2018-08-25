@@ -17,6 +17,15 @@
     </div>
 
     <ion-list *ngIf="items">
+        
+        <ion-grid >
+          <ion-row>
+            <ion-col col-10>ชื่อช่องเก็บของ</ion-col>
+            <ion-col col-1>Row</ion-col>
+            <ion-col col-1>Column</ion-col>
+          </ion-row>
+        </ion-grid>
+
         <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
           {{item.name}}
           <div class="item-note" item-right>

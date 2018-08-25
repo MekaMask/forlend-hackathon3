@@ -13,7 +13,11 @@
     <button ion-button color="secondary" (click)="addNewSlot()">+ เพิ่มของ</button>
 
     <ion-list *ngIf="items">
-
+      <ion-grid >
+        <ion-row>
+          <ion-col col-12>ชื่อ</ion-col>
+        </ion-row>
+      </ion-grid>
       <div *ngFor="let item of items">
           <button ion-item (click)="selectItem(item)">
             {{item.name}}
