@@ -1,0 +1,7 @@
+{
+  "name": "forlend",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
