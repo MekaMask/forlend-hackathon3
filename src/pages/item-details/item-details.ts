@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { SlotAddPage } from '../slotadd/slotadd';
 
 import { Subscription } from 'rxjs';
@@ -22,7 +22,7 @@ export class ItemDetailsPage {
   private selectedlocker: any;
   private itemLog: ItemLog;
 
-  constructor(private http: HttpClient, public navCtrl: NavController, platform: Platform, public navParams: NavParams) {
+  constructor(public alertCtrl: AlertController, private http: HttpClient, public navCtrl: NavController, platform: Platform, public navParams: NavParams) {
     this.selectedItemId = navParams.get('item')._id;
     this.selectedItemName = navParams.get('item').name;
     this.selectedItemSlotName = navParams.get('item').locker.name;
@@ -49,4 +49,27 @@ export class ItemDetailsPage {
     }, error => console.error(error));
   }
 
+  Delete(){
+    const confirm = this.alertCtrl.create({
+      title: 'ลบ?',
+      message: 'คุณต้องการจะทำการลบของ ' +this.selectedItemName+ ' ชิ้นนี้หรือไม่?',
+      buttons: [
+        {
+          text: 'ยกเลิก',
+          handler: () => {
+            console.log('Disagree clicked');
+          }
+        },
+        {
+          text: 'ลบ',
+          handler: () => {
+            this.http.get<ItemLog>('http://foelend-svc.azurewebsites.net/api/ForLend/DeleteItem/'+this.selectedItemId).subscribe(result => {
+              this.navCtrl.pop();
+            }, error => console.error(error));
+          }
+        }
+      ]
+    });
+    confirm.present();
+  }
 }
