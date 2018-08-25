@@ -5,6 +5,7 @@ import { Platform, MenuController, Nav } from 'ionic-angular';
 import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ListPage } from '../pages/list/list';
 import { SlotmanagePage } from '../pages/slotmanage/slotmanage'
+import { ItemDetailsPage } from '../pages/item-details/item-details'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -32,8 +33,8 @@ export class MyApp {
     // set our app's pages
     this.pages = [
       { title: 'หน้าแรก', component: HelloIonicPage },
-      { title: 'จัดการช่องเก็บของ', component: SlotmanagePage },
-      { title: 'My First List', component: ListPage }
+      { title: 'ช่องเก็บของ', component: SlotmanagePage },
+      { title: 'รายการของ', component: ItemDetailsPage }
     ];
   }
 
