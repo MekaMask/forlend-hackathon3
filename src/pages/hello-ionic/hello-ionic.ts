@@ -10,6 +10,7 @@ import { ItemDetailsAddPage } from '../item-details-add/item-details-add';
 import { ItemDetailsPage } from '../item-details/item-details';
 import { RentPage } from '../rent/rent';
 import { SendBackPage } from '../sendback/sendback';
+import { LoginPage } from '../login/login';
 
 
 @Component({
@@ -25,7 +26,7 @@ export class HelloIonicPage {
   }
 
   ionViewDidEnter() {
-    this.http.get<ItemDetail[]>('http://foelend-svc.azurewebsites.net/api/ForLend/GetItems/au').subscribe(result => {
+    this.http.get<ItemDetail[]>('http://foelend-svc.azurewebsites.net/api/ForLend/GetItems/'+LoginPage.CurrentUsername).subscribe(result => {
       this.items = result;
       console.log(this.items)
     }, error => console.error(error));

@@ -10,6 +10,7 @@ import { ItemDetailsPage } from '../pages/item-details/item-details'
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { _appIdRandomProviderFactory } from '@angular/core/src/application_tokens';
+import { LoginPage } from '../pages/login/login';
 
 
 @Component({
@@ -19,8 +20,8 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   // make HelloIonicPage the root (or first) page
-  rootPage = HelloIonicPage;
-  pages: Array<{title: string, component: any}>;
+  rootPage = LoginPage;
+  pages: Array<{ title: string, component: any }>;
 
   constructor(
     public platform: Platform,
@@ -49,7 +50,9 @@ export class MyApp {
   openPage(page) {
     // close the menu when clicking a link from the menu
     this.menu.close();
-    // navigate to the new page if it is not the current page
-    this.nav.setRoot(page.component);
+    if (LoginPage.IsLoggedIn()) {
+      // navigate to the new page if it is not the current page
+      this.nav.setRoot(page.component);
+    }
   }
 }

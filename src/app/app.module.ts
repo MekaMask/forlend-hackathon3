@@ -15,6 +15,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { RentPage } from '../pages/rent/rent';
 import { SendBackPage } from '../pages/sendback/sendback';
+import { LoginPage } from '../pages/login/login';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { SendBackPage } from '../pages/sendback/sendback';
     SendBackPage,
     SlotmanagePage,
     SlotAddPage,
+    LoginPage,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,8 @@ import { SendBackPage } from '../pages/sendback/sendback';
     ItemDetailsAddPage,
     ListPage,
     SlotmanagePage,
-    SlotAddPage
+    SlotAddPage,
+    LoginPage
   ],
   providers: [
     StatusBar,

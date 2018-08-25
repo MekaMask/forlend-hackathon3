@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { NavParams, NavController } from 'ionic-angular';
+import { LoginPage } from '../login/login';
 
 @Component({
   selector: 'rent',
@@ -22,7 +23,7 @@ export class RentPage {
   Create(){
     this.http.post('http://foelend-svc.azurewebsites.net/api/ForLend/LendItem', {
       "itemId": this.selectedItemId,
-      "lendBy": "au",
+      "lendBy": LoginPage.CurrentUsername,
       "witnessBy": this.attestor
     }).subscribe(result => {
       this.navCtrl.pop();
