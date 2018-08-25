@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { SlotmanagePage } from '../slotmanage/slotmanage'
+import { NavController, NavParams } from 'ionic-angular';
 
 @Component({
   selector: 'slotadd',
@@ -6,15 +8,18 @@ import { Component } from '@angular/core';
 })
 export class SlotAddPage {
 
+  private static runningId:number;
   public name:any;
   public row:any;
   public column:any;
 
-  constructor() {
+  constructor(public navCtrl: NavController) {
     
   }
 
   public Create(){
-    console.log(this.name+this.row+this.column);
+    SlotAddPage.runningId++;
+    SlotmanagePage.slots.push({ "id": SlotAddPage.runningId, "name": this.name, "row": this.row, "column": this.column });
+    this.navCtrl.pop();
   }
 }

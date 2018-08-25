@@ -13,11 +13,14 @@
     <button ion-button (click)="addNewSlot()">เพิ่ม</button>
 
     <ion-list>
-        <button ion-item *ngFor="let item of slots" (click)="itemTapped($event, item)">
-          {{item.id}}
+        <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
+          {{item.name}}
           <div class="item-note" item-right>
-            {{item.name}}
+            {{item.row}}
           </div>
+          <div class="item-note" item-right>
+              {{item.column}}
+            </div>
         </button>
       </ion-list>
 
