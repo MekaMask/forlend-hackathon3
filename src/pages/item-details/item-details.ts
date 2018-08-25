@@ -26,6 +26,7 @@ export class ItemDetailsPage {
     this.selectedItemId = navParams.get('item')._id;
     this.selectedItemName = navParams.get('item').name;
     this.selectedItemSlotName = navParams.get('item').locker.name;
+    this.selectedlocker = navParams.get('item').locker._id;
     console.log(this.selectedItemSlotName)
 
     this.http.get<Slot[]>('http://foelend-svc.azurewebsites.net/api/ForLend/GetLockers').subscribe(result => {
