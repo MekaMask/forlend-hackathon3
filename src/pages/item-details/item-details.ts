@@ -5,7 +5,7 @@ import { SlotAddPage } from '../slotadd/slotadd';
 import { Subscription } from 'rxjs';
 import { Platform } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
-import { ItemDetail, Slot } from '../../models/slot';
+import { ItemDetail, Slot, ItemLog } from '../../models/slot';
 import { ItemDetailsAddPage } from '../item-details-add/item-details-add';
 
 
@@ -20,6 +20,7 @@ export class ItemDetailsPage {
   public selectedItemSlotName:any;
   private items: Slot[] = [];
   private selectedlocker: any;
+  private itemLog: ItemLog;
 
   constructor(private http: HttpClient, public navCtrl: NavController, platform: Platform, public navParams: NavParams) {
     this.selectedItemId = navParams.get('item')._id;
@@ -29,6 +30,12 @@ export class ItemDetailsPage {
 
     this.http.get<Slot[]>('http://foelend-svc.azurewebsites.net/api/ForLend/GetLockers').subscribe(result => {
       this.items = result;
+    }, error => console.error(error));
+
+    console.log(this.selectedItemId);
+    this.http.get<ItemLog>('http://foelend-svc.azurewebsites.net/api/ForLend/GetLendItem/'+this.selectedItemId).subscribe(result => {
+      this.itemLog = result;
+      console.log("AAA: "+this.itemLog)
     }, error => console.error(error));
   }
 

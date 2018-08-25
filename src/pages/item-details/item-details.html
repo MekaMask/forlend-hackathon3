@@ -27,6 +27,20 @@
       </ion-item>
     </ion-list>
   
+    <ion-grid *ngIf="itemLog">
+        <ion-row>
+          <ion-col col-3>ผู้ยืม</ion-col>
+          <ion-col col-3>พยาน</ion-col>
+          <ion-col col-3>สถานะ</ion-col>
+          <ion-col col-3>เวลา</ion-col>
+        </ion-row>
+        <ion-row *ngFor="let item of itemLog.log">
+            <ion-col col-3>{{item.actionBy}}</ion-col>
+            <ion-col col-3>{{item.witnessBy}}</ion-col>
+            <ion-col col-3>{{item.status}}</ion-col>
+            <ion-col col-3>{{item.actionDate}}</ion-col>
+          </ion-row>
+      </ion-grid>
   
   <button ion-button color="secondary" (click)="Edit()">แก้ไข</button>
 
