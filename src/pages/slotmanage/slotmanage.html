@@ -3,14 +3,14 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>จัดการช่องเก็บของ</ion-title>
+    <ion-title>ช่องเก็บของ</ion-title>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
 
-    <button ion-button (click)="addNewSlot()">เพิ่ม</button>
+    <button ion-button color="secondary" (click)="addNewSlot()">+ เพิ่มช่องเก็บของ</button>
 
     <div *ngIf="!items">
       Loading

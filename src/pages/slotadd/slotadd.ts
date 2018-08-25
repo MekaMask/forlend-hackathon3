@@ -24,4 +24,8 @@ export class SlotAddPage {
       this.navCtrl.pop();
     }, error => console.error(error));
   }
+
+  public Cancel(){
+    this.navCtrl.pop();
+  }
 }

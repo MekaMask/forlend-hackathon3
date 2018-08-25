@@ -25,4 +25,8 @@ export class ItemDetailsAddPage {
     }, error => console.error(error));
   }
 
+  public Cancel(){
+    this.navCtrl.pop();
+  }
+
 }
