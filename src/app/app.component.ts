@@ -32,7 +32,6 @@ export class MyApp {
 
     // set our app's pages
     this.pages = [
-      { title: 'หน้าแรก', component: HelloIonicPage },
       { title: 'ช่องเก็บของ', component: SlotmanagePage },
       { title: 'รายการของ', component: ItemDetailsPage }
     ];

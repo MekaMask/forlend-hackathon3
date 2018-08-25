@@ -8,8 +8,7 @@ export class Slot{
 export class ItemDetail{
     public _id: string;
     public name: string;
-    public detail: string;
-    public type: string;
-    public status: string;
     public locker: Slot;
+    public canlend: boolean;
+    public canSendBack: boolean;
 }

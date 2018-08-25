@@ -3,23 +3,30 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Hello Ionic</ion-title>
+    <ion-title>รายการ</ion-title>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
 
-  <h3>Welcome to your first Ionic app!</h3>
+    <button ion-button color="secondary" (click)="addNewSlot()">+ เพิ่มช่องเก็บของ</button>
 
-  <p>
-    This starter project is our way of helping you get a functional app running in record time.
-  </p>
-  <p>
-    Follow along on the tutorial section of the Ionic docs!
-  </p>
-  <p>
-    <button ion-button color="primary" menuToggle>Toggle Menu</button>
-  </p>
+    <div *ngIf="!items">
+      Loading
+    </div>
+
+    <ion-list *ngIf="items">
+
+        <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
+          {{item.name}}
+          <div *ngIf="item.canlend" class="item-note" item-right>
+              <button ion-button color="secondary" (click)="addNewSlot()">ยืม</button>
+          </div>
+          <div *ngIf="item.canSendBack" class="item-note" item-right>
+              <button ion-button color="secondary" (click)="addNewSlot()">คืน</button>
+          </div>
+        </button>
+      </ion-list>
 
 </ion-content>

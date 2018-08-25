@@ -11,6 +11,7 @@ export class ItemDetailsAddPage {
 
   private data: ItemDetail = new ItemDetail();
   private items: Slot[] = [];
+  private selectedlocker: any;
 
   constructor(private http: HttpClient, public navCtrl: NavController) {
     this.http.get<Slot[]>('http://foelend-svc.azurewebsites.net/api/ForLend/GetLockers').subscribe(result => {
@@ -19,8 +20,11 @@ export class ItemDetailsAddPage {
   }
 
   public Create(){
-    console.log(this.data);
-    this.http.post('http://foelend-svc.azurewebsites.net/api/ForLend/CreateItem', this.data).subscribe(result => {
+    console.log("selectedlocker "+this.selectedlocker);
+    this.http.post('http://foelend-svc.azurewebsites.net/api/ForLend/CreateItem', {
+      "name": this.data.name,
+      "lockerId": this.selectedlocker
+    }).subscribe(result => {
       this.navCtrl.pop();
     }, error => console.error(error));
   }
